@@ -1,4 +1,10 @@
 class BooksController < ApplicationController
+
+  def index
+    @book = Book.new
+    @books = Book.all
+  end
+
   def create
     @book = Book.new(book_params)
     @book.save
@@ -6,15 +12,18 @@ class BooksController < ApplicationController
     # 詳細画面へリダイレクトするには固定のURL"book_path"ではなく"book_path(@book.id)"じゃないとダメ。
   end
 
-  def index
-    @book = Book.new
-  end
-
   def show
     @book = Book.find(params[:id])
   end
 
   def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    book = book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book.id)
   end
 
   private

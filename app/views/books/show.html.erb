@@ -2,4 +2,4 @@
 
 <p>Body:<%= @book.body %></p>
 
-edit | Back
+<%= link_to "Edit", edit_book_path(@book.id) %> | <%= link_to "Back", books_path %>

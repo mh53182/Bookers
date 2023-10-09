@@ -12,9 +12,12 @@
 <%= form_with model: @book, url:book_path(@book), method: :patch, local: true do |f| %>
   <p class=field-label>Title</p>
   <div class="field"><%= f.text_field :title %></div>
+
   <p class=field-label>Body</p>
   <div class="field"><%= f.text_area :body %></div>
+
   <div class="submit"><%= f.submit 'Update Book' %></div>
 <% end %>
+
 <%= link_to "Show", book_path(@book.id) %> | <%= link_to "Back", books_path %>
 
